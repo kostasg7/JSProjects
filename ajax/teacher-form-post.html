@@ -16,7 +16,7 @@
         <div>
             <label for="firstName" class="block text-sm font-medium text-gray-700">First Name:</label>
             <input type="text" id="firstname" name="firstName" required
-                   class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm
+                   class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm 
                    focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
         </div>
 
@@ -72,11 +72,11 @@
         {id: 4, name: "Καλαμάτα"},
         {id: 5, name: "Λαμία"},
         {id: 6, name: "Δράμα"},
-        {id: 7, name: "Θεσσαλονίκη"}
+        {id: 7, name: "Θεσσαλονίκη"},
       ]
 
       document.getElementById('city').innerHTML = cities
-                                                      .sort((a, b) => a.name.localeCompare(b.name))
+                                                      .sort((a, b) => a.name.localeCompare(b.name, "el-GR"))
                                                       .map(city => `<option value ="${city.id}">${city.name}</option>`)
                                                       .join('')
     } catch (error) {
@@ -97,18 +97,18 @@
 
     try {
 
-      // const response = await axios.post('https://api-aueb.gr/teachers', formData)
-      // console.log('Form submitted successfully', response.data)
-      alert('Teacher data submitted successfully' + JSON.stringify(formData))
+        //const response = await axios.post('https://api-aueb.gr/teachers', formData)
+        //console.log('Form submitted successfully', response.data)
+        alert('Teacher data submitted successfully' + JSON.stringify(formData) )
     } catch (error) {
       console.error('Error in submitting the form.')
       alert('Failed to submit the teacher form')
     }
-  }
+  } 
 
   document.addEventListener('DOMContentLoaded', () => {
     fetchCities();
-    document.getElementById('teacherForm').addEventListener('submit', handleFormSubmit())
+    document.getElementById('teacherForm').addEventListener('submit', handleFormSubmit)
   })
 
 </script>
